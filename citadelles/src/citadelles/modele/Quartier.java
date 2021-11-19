@@ -10,6 +10,7 @@ public class Quartier {
 	public String getNom(){
 		return this.nom;
 	}
+	
 	public void setNom(String nom){
 		this.nom = nom;
 	}
@@ -17,6 +18,7 @@ public class Quartier {
 	public String getType() {
 		return type;
 	}
+	
 	public void setType(String type) {
 		this.type = type;
 	}
