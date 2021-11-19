@@ -1,15 +1,15 @@
 package citadelles.modele;
 
 public class Caracteristiques {
-	public static String ASSASSIN= 
+	public static String ASSASSIN = 
 			"L'assassin peut tuer un personnage de son choix. " +
 			"Celui-ci ne jouera pas ce tour-ci.";
-		public static String ECHEVIN= 
+		public static String ECHEVIN = 
 			"L'échevin place des mandats de réquisition, face cachée, " +
 			"sous 3 jetons Personnage différents. Il peut révéler le " +
 			"mandat signé pour confisquer le premier quartier bâti par " +
 			"le joueur ciblé, qui récupère le coût de construction.";
-		public static String SORCIERE=
+		public static String SORCIERE =
 			"Après avoir pris or ou carte, la Sorcière ensorcelle un " +
 			"personnage et interrompt son tour. Elle le terminera en " +
 			"jouant à la place du personnage ensorcelé";
