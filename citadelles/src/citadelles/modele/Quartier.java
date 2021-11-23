@@ -1,13 +1,15 @@
 package citadelles.modele;
 
 public class Quartier{
-		//attributs private:
+	//attributs private:
 	private String nom="";
 	private String type="";
 	private String caracteristiques="";
 	private int coutConstruction=0;
+	
 	// attributs public:
 	public static final String[] TYPE_QUARTIERS={"RELIGIEUX", "MILITAIRE", "NOBLE", "COMMERCANT", "MERVEILLE"};
+	
 	//Methodes
 	public Quartier (String nom, String type,int cout,String carac) {
 		this.nom=nom;
@@ -48,7 +50,7 @@ public class Quartier{
 		boolean isPresent=false;
 		while(i<TYPE_QUARTIERS.length && !isPresent){
 			if(type.equals(TYPE_QUARTIERS[i])){
-				this.type=type;
+				this.type = type;
 				isPresent=true;
 			}
 			i=i++;
