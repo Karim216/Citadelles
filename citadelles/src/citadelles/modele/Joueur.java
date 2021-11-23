@@ -4,12 +4,12 @@ import java.util.Random;
 
 public class Joueur {
 	private String nom="";
-	private int tresor=0;
-	final int TAILLE_CITE = 8;
-	private Quartier[] cite;
+	public int tresor=0;
+	private final int TAILLE_CITE = 8;
+	public Quartier[] cite;
 	private int nbQuartiers=0;
-	private ArrayList<Quartier> main = new ArrayList<Quartier>();
-	private boolean possedeCouronne = false;
+	public ArrayList<Quartier> main = new ArrayList<Quartier>();
+	public boolean possedeCouronne = false;
 	
 	//Constructeur Nom
 	public Joueur(String nom) {
