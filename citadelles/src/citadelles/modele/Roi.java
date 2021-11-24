@@ -7,19 +7,26 @@ public class Roi extends Personnage{
 		// TODO Auto-generated constructor stub
 	}
 
-	public void utiliserPouvoir() {
-		System.out.print("Je prends la couronne");
-		joueur.possedeCouronne = true;
+	public void utiliserPouvoir() {	
+		
+		if(getJoueur() != null && getAssassine() != true) {
+			System.out.print("Je prends la couronne");
+			joueur.possedeCouronne = true;
+		}
 		
 	}
 	
 	public void percevoirRessourcesSpecifiques() {
-		if(Quartier.TYPE_QUARTIERS[2].equals("NOBLE")) {
-			//int nbQuartierDansCite = joueur.nbQuartiersDansCite();
-			joueur.tresor += 2;
-			
-			System.out.print(2+" pièce(s) ajouté(s) aux tresors du "+getNom());
+		
+		if(getJoueur() != null && getAssassine() != true) {
+			if(Quartier.TYPE_QUARTIERS[2].equals("NOBLE")) {
+				int nbQuartierDansCite = joueur.nbQuartiersDansCite();
+				joueur.tresor += nbQuartierDansCite;
+				
+				System.out.print(nbQuartierDansCite+" pièce(s) ajouté(s) aux tresors du "+getNom());
+			}
 		}
+		
 	}
 	
 }
