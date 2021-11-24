@@ -7,7 +7,7 @@ public abstract class Personnage {
 	public Joueur joueur = null;
 	private boolean assassine = false;
 	private boolean vole = false;
-	//private PlateauDeJeu plateau;
+	private PlateauDeJeu plateau;
 	
 	//constructeur parametre
 	public Personnage(String nom, int rang, String caracteristiques) {
@@ -15,6 +15,7 @@ public abstract class Personnage {
 		this.nom = nom;
 		this.rang = rang;
 		this.caracteristiques = caracteristiques;
+		
 	}
 	
 	//les accesseurs
@@ -34,29 +35,36 @@ public abstract class Personnage {
 		return joueur;
 	}
 	
-	public boolean getAssassine() {
+	public boolean getAssassine(){
 		return assassine;
 	}
 	
-	public boolean getVole() {
+	public boolean getVole(){
 		return vole;
 	}
 	
+	public PlateauDeJeu getPlateau(){
+		return plateau;
+	}
+	
 	//les mutateurs
-	public void setJoueur(Joueur joueur) {
+	public void setJoueur(Joueur joueur){
 		this.joueur = joueur;
 	}
-	public void setAssassine() {
+	public void setAssassine(){
 		this.assassine = true;
 	}
 	public void setVole() {
 		this.vole = true;
 	}
+	public void setPlateau(PlateauDeJeu plateau){
+		this.plateau = plateau;
+	}
 	
 	public void ajouterPieces() {
 		
 		//dans le cas où le personnage est associé à un joueur ou qu'il n'est pas assassiné
-		if(getJoueur() != null && assassine != true) {
+		if(getJoueur() != null && assassine != true){
 			joueur.tresor += 2;
 		}
 		
@@ -64,7 +72,7 @@ public abstract class Personnage {
 		//else {}
 	}
 	
-	public void ajouterQuartier(Quartier nouveau) {
+	public void ajouterQuartier(Quartier nouveau){
 		
 		//dans le cas où le personnage est associé à un joueur ou qu'il n'est pas assassiné
 		if(getJoueur() != null && assassine != true) {
