@@ -62,6 +62,10 @@ public class PlateauDeJeu{
 		if(getNombrePersonnages() < NOMBRE_MAX_JOUEUR && nouveau != null) {
 			listePersonnages[getNombrePersonnages()] = nouveau;
 			nombrePersonnages++;
+			
+			//association du plateau au personnage ajouté
+			nouveau.setPlateau(this);
+		
 		}
 		
 	}
