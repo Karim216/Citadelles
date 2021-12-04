@@ -11,7 +11,7 @@ public class TestJoueur {
 		testJoueur.test2();	
 		testJoueur.test3();
 		testJoueur.test4();
-		testJoueur.test5();	
+		testJoueur.test5();
 	}	
 	
 	public void test1(){

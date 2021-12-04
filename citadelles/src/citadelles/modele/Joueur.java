@@ -10,12 +10,14 @@ public class Joueur {
 	private int nbQuartiers=0;
 	public ArrayList<Quartier> main = new ArrayList<Quartier>();
 	public boolean possedeCouronne = false;
+	protected Personnage monPersonnage;
 	
 	//Constructeur Nom
 	public Joueur(String nom) {
 		super();
 		this.nom = nom;
 		cite = new Quartier[TAILLE_CITE];
+		monPersonnage = null;
 	}
 	//Accesseurs nom
 	public String getNom() {
@@ -33,6 +35,9 @@ public class Joueur {
 	}
 	public ArrayList<Quartier> getMain() {
 		return this.main;
+	}
+	public Personnage getPersonnage() {
+		return monPersonnage;
 	}
 	public int nbQuartiersDansMain() {
 		return main.size();

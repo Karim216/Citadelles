@@ -10,7 +10,7 @@ public class TestRoi {
 	public static void main(String[] args) {
 		TestRoi testRoi= new TestRoi();
 		testRoi.test1();
-		testRoi.test2();	
+		testRoi.test2();
 		testRoi.test3();
 		testRoi.test4();
 		testRoi.test5();

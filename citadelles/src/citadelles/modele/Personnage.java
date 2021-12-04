@@ -4,7 +4,7 @@ public abstract class Personnage {
 	private String nom;
 	private int rang;
 	private String caracteristiques;
-	public Joueur joueur = null;
+	public Joueur joueur;
 	private boolean assassine = false;
 	private boolean vole = false;
 	private PlateauDeJeu plateau;
@@ -15,6 +15,7 @@ public abstract class Personnage {
 		this.nom = nom;
 		this.rang = rang;
 		this.caracteristiques = caracteristiques;
+		joueur = null;
 		
 	}
 	
@@ -50,6 +51,9 @@ public abstract class Personnage {
 	//les mutateurs
 	public void setJoueur(Joueur joueur){
 		this.joueur = joueur;
+	}
+	public void setJoueur(){
+		this.joueur.monPersonnage = this;
 	}
 	public void setAssassine(){
 		this.assassine = true;
@@ -114,6 +118,9 @@ public abstract class Personnage {
 	
 	public void reinitialiser() {
 		joueur = null;
+		if(this.joueur != null) {
+			this.joueur.monPersonnage = null;
+		}
 		vole = false;
 		assassine = false;
 	}
