@@ -1,12 +1,19 @@
 package citadelles.modele;
 
 public abstract class Personnage {
+	
 	private String nom;
 	private int rang;
 	private String caracteristiques;
+	
+	//attribut du joueur auquel le personnage est attribué
 	public Joueur joueur;
-	private boolean assassine = false;
-	private boolean vole = false;
+	
+	//l'état du personnage
+	private boolean assassine = false; //pour indiquer que le personnage n'est pas volé
+	private boolean vole = false; //pour indiquer que le personnage n'est pas assassiné
+	
+	
 	private PlateauDeJeu plateau;
 	
 	//constructeur parametre
@@ -20,18 +27,23 @@ public abstract class Personnage {
 	}
 	
 	//les accesseurs
+	
+	//renvoie le nom du personnage
 	public String getNom() {
 		return nom;
 	}
 	
+	//renvoie le rang du personnage
 	public int getRang() {
 		return rang;
 	}
 	
+	//renvoie le carractéristique du personnage
 	public String getCaracteristiques() {
 		return caracteristiques;
 	}
 	
+	//renvoie le joueur auquel le personnage est attribué
 	public Joueur getJoueur() {
 		return joueur;
 	}
@@ -43,6 +55,7 @@ public abstract class Personnage {
 	public boolean getVole(){
 		return vole;
 	}
+	
 	
 	public PlateauDeJeu getPlateau(){
 		return plateau;
@@ -64,6 +77,7 @@ public abstract class Personnage {
 	public void setPlateau(PlateauDeJeu plateau){
 		this.plateau = plateau;
 	}
+	
 	
 	public void ajouterPieces() {
 		

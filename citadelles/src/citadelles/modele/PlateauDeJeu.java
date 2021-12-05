@@ -39,6 +39,7 @@ public class PlateauDeJeu{
 		
 	}
 
+	//renvoie le le ième personnage du tableau liste personnage
 	public Personnage getPersonnage(int i) {
 		
 		if(i >= 0 && i < listePersonnages.length) {

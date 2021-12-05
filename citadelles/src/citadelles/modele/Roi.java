@@ -7,6 +7,7 @@ public class Roi extends Personnage{
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
 	public void utiliserPouvoir() {	
 		
 		if(getJoueur() != null && getAssassine() != true) {

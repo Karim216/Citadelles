@@ -1,16 +1,24 @@
 package citadelles.modele;
 
-public class Assassin extends Personnage{
+import controleur.Interaction;
+import citadelles.modele.PlateauDeJeu;
+
+public class Assassin extends Personnage {
+
 
 	public Assassin() {
+
 		super("Assassin", 1, Caracteristiques.ASSASSIN);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void utiliserPouvoir() {
-		// TODO Auto-generated method stub
-		
+
+		boolean continu = false;
+		System.out.print("Quel personnage voulez vous assassiner ?\n");
+
+//		System.out.println(PlateauDeJeu.getPersonnage(1));
+
 	}
 
 }
