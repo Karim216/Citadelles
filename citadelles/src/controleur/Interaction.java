@@ -31,12 +31,12 @@ public class Interaction {
 		boolean continu = true;
 		do {
 			i = lireUnEntier();
-			if(i>=0 && i<10) {
+			if(i>=borneMin && i<borneMax) {
 				continu = false;
 			}
 			else {
 				//continu = true;
-				System.out.print("Veuillez rentrer un entier dans l'intevalle [0;10[: ");
+				System.out.print("Veuillez rentrer un entier dans l'intevalle ["+borneMin+";"+borneMax+"[");
 				//sc.next(); // passe l'entier pour éviter de boucler
 			}
 		}while(continu);

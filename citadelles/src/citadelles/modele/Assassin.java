@@ -1,7 +1,6 @@
 package citadelles.modele;
 
 import controleur.Interaction;
-import citadelles.modele.PlateauDeJeu;
 
 public class Assassin extends Personnage {
 
@@ -17,7 +16,25 @@ public class Assassin extends Personnage {
 		boolean continu = false;
 		System.out.print("Quel personnage voulez vous assassiner ?\n");
 
-//		System.out.println(PlateauDeJeu.getPersonnage(1));
+		for(int i=0; i<getPlateau().getNombrePersonnages(); i++) {
+			System.out.println("\t"+(i+1)+" "+getPlateau().getPersonnage(i).getNom());
+		}
+		
+		
+		do {
+			System.out.print("Votre choix: ");
+			int choix = Interaction.lireUnEntier(1, getPlateau().getNombrePersonnages()+1);
+			
+			if(getPlateau().getPersonnage(choix - 1).getNom().equals("Assassin")) {
+				System.out.print("Vous ne pouvez pas vous assassiner\n");
+				continu = true;
+			}
+			else {
+				getPlateau().getPersonnage(choix - 1).setAssassine();
+				continu = false;
+			}
+		}while(continu);
+		
 
 	}
 
