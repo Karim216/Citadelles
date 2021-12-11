@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 public class Interaction {
 	private static Scanner sc = new Scanner(System.in);
-	private static Random rd = new Random();
 
 	public static int lireUnEntier() {
 		int i = 0;
@@ -19,27 +18,26 @@ public class Interaction {
 				System.out.print("Veuillez rentrer un chiffre : ");
 				sc.next(); // passe l'entier pour éviter de boucler
 			}
-		} while(continu);
+		} while (continu);
 		return i;
 	}
 
 	// renvoie un entier lu au clavier compris dans l'intervalle
-	//     [borneMin, borneMax[
+	// [borneMin, borneMax[
 	public static int lireUnEntier(int borneMin, int borneMax) {
 		int i = 0;
 		// ...
 		boolean continu = true;
 		do {
 			i = lireUnEntier();
-			if(i>=borneMin && i<borneMax) {
+			if (i >= borneMin && i < borneMax) {
 				continu = false;
+			} else {
+				// continu = true;
+				System.out.print("Veuillez rentrer un entier dans l'intevalle [" + borneMin + ";" + borneMax + "[");
+				// sc.next(); // passe l'entier pour éviter de boucler
 			}
-			else {
-				//continu = true;
-				System.out.print("Veuillez rentrer un entier dans l'intevalle ["+borneMin+";"+borneMax+"[");
-				//sc.next(); // passe l'entier pour éviter de boucler
-			}
-		}while(continu);
+		} while (continu);
 		return i;
 	}
 
@@ -50,20 +48,18 @@ public class Interaction {
 		// ...
 		do {
 			String reponse = lireUneChaine().toLowerCase();
-			//System.out.print(reponse);
-			if(reponse.equals("oui") == true || reponse.equals("o") == true) {
+			// System.out.print(reponse);
+			if (reponse.equals("oui") == true || reponse.equals("o") == true) {
 				retour = true;
 				continu = false;
-			}
-			else if(reponse.equals("non") == true || reponse.equals("n") == true){
+			} else if (reponse.equals("non") == true || reponse.equals("n") == true) {
 				retour = false;
 				continu = false;
-			}
-			else {
+			} else {
 				System.out.print("Veuillez rentrer \"oui\", \"o\", \"non\" ou \"n\" : ");
 			}
-		}while(continu);
-		
+		} while (continu);
+
 		return retour;
 	}
 
@@ -79,10 +75,8 @@ public class Interaction {
 				System.out.print("Votre entrée doit être un caractère ou une chaine de caractère : ");
 				sc.next(); // passe l'entier pour éviter de boucler
 			}
-		} while(continu);
+		} while (continu);
 		return retour;
 	}
 
-
-	
 }
