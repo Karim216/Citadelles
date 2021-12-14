@@ -11,16 +11,12 @@ import citadelles.modele.Quartier;
 
 import java.util.ArrayList;
 
+
 public class TestMagicienne {
-
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
 		TestMagicienne test = new TestMagicienne();
-		test.test1();
+		//test.test1();
 		test.test2();	
-		
-
 	}
 	
 	public void test1() {
@@ -132,5 +128,5 @@ public class TestMagicienne {
 		Test.test(taillePiocheAvantPouvoir==pioche.nombreElements(), 
 				"taille inchangée de la pioche");
 	}
-
+	
 }

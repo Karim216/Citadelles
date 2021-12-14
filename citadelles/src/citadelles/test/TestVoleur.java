@@ -8,14 +8,10 @@ import citadelles.modele.Joueur;
 import citadelles.modele.PlateauDeJeu;
 
 public class TestVoleur {
-
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
 		TestVoleur test = new TestVoleur();
 		test.test1();
-		test.test2();	
-
+		//test.test2();	
 	}
 	
 	public void test1() {
@@ -68,5 +64,5 @@ public class TestVoleur {
 		Test.test(roi.getJoueur().nbPieces()==0, "le trésor du roi est vide");
 		Test.test(voleur.getJoueur().nbPieces()==2, "le trésor du voleur contient deux pièces");
 	}
-
+	
 }
