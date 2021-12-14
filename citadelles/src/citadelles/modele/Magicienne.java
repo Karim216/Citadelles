@@ -12,6 +12,12 @@ public class Magicienne extends Personnage {
 	public void utiliserPouvoir() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void percevoirRessourcesSpecifiques() {
+		// TODO Auto-generated method stub
+		
 	}	
 	
 }

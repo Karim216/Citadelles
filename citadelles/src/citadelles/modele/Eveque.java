@@ -21,5 +21,10 @@ public class Eveque extends Personnage {
 	public void utiliserPouvoir() {
 
 	}
+	@Override
+	public void percevoirRessourcesSpecifiques() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

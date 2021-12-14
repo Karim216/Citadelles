@@ -18,4 +18,9 @@ public void percevoirRessourceSpecifique() {
 	public void utiliserPouvoir() {
 
 }
+	@Override
+	public void percevoirRessourcesSpecifiques() {
+		// TODO Auto-generated method stub
+		
+	}
 }

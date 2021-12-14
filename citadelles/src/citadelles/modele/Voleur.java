@@ -45,5 +45,11 @@ public class Voleur extends Personnage {
 	}while(continu);
 	}
 
+	@Override
+	public void percevoirRessourcesSpecifiques() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
 
