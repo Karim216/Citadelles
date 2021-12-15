@@ -20,12 +20,12 @@ public class Roi extends Personnage {
 	public void percevoirRessourcesSpecifiques() {
 
 		if (getJoueur() != null && getAssassine() != true) {
-			if (Quartier.TYPE_QUARTIERS[2].equals("NOBLE")) {
-				int nbQuartierDansCite = joueur.nbQuartiersDansCite();
-				joueur.tresor += nbQuartierDansCite;
-
-				System.out.print(nbQuartierDansCite + " pièce(s) ajouté(s) aux tresors du " + getNom());
+			for (int i = 0; i<joueur.nbQuartiersDansCite(); i++) {
+				if (Quartier.TYPE_QUARTIERS[2].equals("NOBLE")) {
+					getJoueur().ajouterPieces(1);
+				}
 			}
+			
 		}
 
 	}

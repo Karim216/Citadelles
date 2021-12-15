@@ -123,18 +123,7 @@ public abstract class Personnage {
 
 	}
 
-	public void percevoirRessourcesSpecifiques() {
-
-		// dans le cas où le personnage est associé à un joueur ou qu'il n'est pas
-		// assassiné
-		if (getJoueur() != null && assassine != true) {
-			System.out.print("aucune ressource spécifique");
-		}
-
-		// dans le cas où le personnage n'est associé à aucun joueur ou qu'il est
-		// assassiné
-		// else {}
-	}
+	public abstract void percevoirRessourcesSpecifiques();
 
 	// classe abstraite qui sera utilisé dans les classes roi et autres
 	public abstract void utiliserPouvoir();

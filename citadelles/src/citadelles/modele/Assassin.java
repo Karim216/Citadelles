@@ -34,4 +34,10 @@ public class Assassin extends Personnage {
 
 	}
 
+	@Override
+	public void percevoirRessourcesSpecifiques() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
