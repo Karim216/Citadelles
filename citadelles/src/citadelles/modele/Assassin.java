@@ -13,7 +13,7 @@ public class Assassin extends Personnage {
 	public void utiliserPouvoir() {
 
 		boolean continu = false;
-		System.out.print("Quel personnage voulez vous assassiner ?\n");
+		System.out.print("Quel personnage voulez-vous assassiner ?\n");
 
 		for (int i = 0; i < getPlateau().getNombrePersonnages(); i++) {
 			System.out.println("\t" + (i + 1) + " " + getPlateau().getPersonnage(i).getNom());
