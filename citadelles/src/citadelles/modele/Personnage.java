@@ -7,7 +7,7 @@ public abstract class Personnage {
 	private String caracteristiques;
 
 	// attribut du joueur auquel le personnage est attribué
-	public Joueur joueur;
+	private Joueur joueur;
 
 	// l'état du personnage
 	private boolean assassine = false; // pour indiquer que le personnage n'est pas volé

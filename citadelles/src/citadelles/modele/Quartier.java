@@ -38,7 +38,7 @@ public class Quartier {
 
 	// accesseurs Nom
 	public String getNom() {
-		return this.nom;
+		return nom;
 	}
 
 	public void setNom(String nom) {
@@ -47,7 +47,7 @@ public class Quartier {
 
 	// accesseurs Type
 	public String getType() {
-		return this.type;
+		return type;
 	}
 
 	public void setType(String type) {

@@ -8,8 +8,8 @@ public Marchande() {
 public void percevoirRessourceSpecifique() {
 	if(getJoueur() != null && getAssassine() != true) {
 		if(Quartier.TYPE_QUARTIERS[3].equals("COMMERCANT")) {
-			int nbQuartierDansCite = joueur.nbQuartiersDansCite();
-			joueur.tresor += nbQuartierDansCite;
+			int nbQuartierDansCite = getJoueur().nbQuartiersDansCite();
+			getJoueur().tresor += nbQuartierDansCite;
 
 			System.out.print(nbQuartierDansCite+" pièce(s) ajouté(s) aux tresors du "+getNom());
 		}
@@ -21,6 +21,15 @@ public void percevoirRessourceSpecifique() {
 	@Override
 	public void percevoirRessourcesSpecifiques() {
 		// TODO Auto-generated method stub
+		
+		if (getJoueur() != null && getAssassine() != true) {
+			for (int i = 0; i<getJoueur().nbQuartiersDansCite(); i++) {
+				if (getJoueur().getCite()[i].getType().equals("COMMERCANT")) {
+					getJoueur().ajouterPieces(1);
+					
+				}
+			}
+		}
 		
 	}
 }

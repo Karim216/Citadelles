@@ -6,7 +6,7 @@ public class Joueur {
 	private String nom="";
 	public int tresor=0;
 	private final int TAILLE_CITE = 8;
-	public Quartier[] cite;
+	private Quartier[] cite;
 	private int nbQuartiers=0;
 	public ArrayList<Quartier> main = new ArrayList<Quartier>();
 	public boolean possedeCouronne = false;

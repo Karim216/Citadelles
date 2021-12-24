@@ -116,7 +116,7 @@ public class TestRoi {
 			"test alors qu'il n'y a pas de quartiers nobles");
 		roi.construire(quartier1);
 		roi.construire(quartier2);
-		roi.construire(quartier3);		
+		roi.construire(quartier3);
 		roi.percevoirRessourcesSpecifiques();
 		Test.test(roi.getJoueur().nbPieces() == 3,
 			"test du nombre de pièces d'or après perception de ressources spécifiques avec 1 quartier noble");

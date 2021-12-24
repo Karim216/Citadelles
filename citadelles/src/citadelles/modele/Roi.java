@@ -12,20 +12,19 @@ public class Roi extends Personnage {
 
 		if (getJoueur() != null && getAssassine() != true) {
 			System.out.print("Je prends la couronne");
-			joueur.possedeCouronne = true;
+			getJoueur().possedeCouronne = true;
 		}
 
 	}
 
 	public void percevoirRessourcesSpecifiques() {
-
 		if (getJoueur() != null && getAssassine() != true) {
-			for (int i = 0; i<joueur.nbQuartiersDansCite(); i++) {
-				if (Quartier.TYPE_QUARTIERS[2].equals("NOBLE")) {
+			for (int i = 0; i<getJoueur().nbQuartiersDansCite(); i++) {
+				if (getJoueur().getCite()[i].getType().equals("NOBLE")) {
 					getJoueur().ajouterPieces(1);
+					
 				}
 			}
-			
 		}
 
 	}
