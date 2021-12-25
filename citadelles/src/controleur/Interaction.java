@@ -34,7 +34,8 @@ public class Interaction {
 				continu = false;
 			} else {
 				// continu = true;
-				System.out.print("Veuillez rentrer un entier dans l'intevalle [" + borneMin + ";" + borneMax + "[");
+				System.out.print("L'entier doit être dans l'intevalle [" + borneMin + ";" + borneMax + "[");
+				System.out.print("\nEntrez un chiffre : ");
 				// sc.next(); // passe l'entier pour éviter de boucler
 			}
 		} while (continu);

@@ -47,7 +47,7 @@ public class Joueur {
 	}
 
 	public int nbQuartiersDansMain() {
-		return main.size();
+		return this.main.size();
 	}
 
 	public boolean getPossedeCouronne() {
