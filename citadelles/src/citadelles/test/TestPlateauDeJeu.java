@@ -48,7 +48,6 @@ public class TestPlateauDeJeu {
 		PlateauDeJeu plateau = new PlateauDeJeu();
 		Roi roi = new Roi();
 		plateau.ajouterPersonnage(roi);
-		Test.test(roi.getPlateau()==plateau,
-				"association du plateau au personnage");
+		Test.test(roi.getPlateau() == plateau, "association du plateau au personnage");
 	}
 }
