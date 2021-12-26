@@ -25,7 +25,14 @@ public class Magicienne extends Personnage {
 			Boolean choix = Interaction.lireOuiOuNon();
 
 			if (choix) {
-				System.out.print("Vous ne pouvez pas vous assassiner\n");
+				for(int i=0; i<getPlateau().getNombreJoueurs(); i++) {
+					System.out.println((i+1)+") "+getPlateau().getJoueur(i).getNom()+", nombre de quartier(s) => "+
+																getPlateau().getJoueur(i).nbQuartiersDansMain());
+				}
+				
+				System.out.print("Choisissez un joueur: ");
+				int joueurChoisit = Interaction.lireUnEntier(1, getPlateau().getNombreJoueurs() + 1);
+				
 				
 			} else {
 				System.out.print("Combien de cartes voulez-vous prendre dans la pioche ? ");
