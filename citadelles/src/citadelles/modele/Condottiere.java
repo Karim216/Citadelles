@@ -11,7 +11,7 @@ public class Condottiere extends Personnage {
 	}
 
 	public void utiliserPouvoir() {
-		System.out.println("Voulez-vous détruire un quartier d'une cité ?");
+		System.out.println("Voulez-vous détruire un quartier d'une cité ? ");
 		boolean choix1 = Interaction.lireOuiOuNon();
 		if (choix1) {
 			System.out.println("Voici la liste des joueurs et leurs quartier");
@@ -28,10 +28,12 @@ public class Condottiere extends Personnage {
 					numEveque = i;
 				}
 				Quartier[] cite = j.getCite();
-				System.out.println(i + 1 + "  " + j.getNom() + " :");
+				System.out.print(i + 1 + "  " + j.getNom() + " : ");
 				for (int k = 0; k < j.nbQuartiersDansCite(); k++) {
-					System.out.println(k + 1 + "  " + cite[k].getNom() + " coût " + cite[k].getCout());
+					System.out.print(k + 1 + "  " + cite[k].getNom() + "(coût " + cite[k].getCout()+"), ");
 				}
+				
+				System.out.print("\n");
 			}
 			System.out.println("Pour information vous avez " + getPlateau().getJoueur(numCondo).nbPieces() + " pièces");
 			int t;
