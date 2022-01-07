@@ -37,44 +37,56 @@ public class Condottiere extends Personnage {
 			}
 			System.out.println("Pour information vous avez " + getPlateau().getJoueur(numCondo).nbPieces() + " pièces");
 			int t;
-			boolean continu;
+			boolean continu = true;
 			do {
 				System.out.println("Quel joueur choisissez-vous ? (0 si vous ne voulez rien faire)");
 
 				t = Interaction.lireUnEntier(0, getPlateau().getNombreJoueurs() + 1);
-				continu = true;
-				for (int i = 0; i < getPlateau().getJoueur(t - 1).nbQuartiersDansCite(); i++) {
-//    			if(getJoueur().getCite().getCout()-1<=getPlateau().getJoueur(numCondo).nbPieces()) {
-//    				continu = false;
-//    				
-//    			}
+				
+				if(t == 0) {
+					System.out.println("Vous ne faites rien");
+					continu = false;
 				}
-			} while ((getPlateau().getJoueur(t - 1).getNom().equals("Eveque")
-					&& !getPlateau().getJoueur(t - 1).getPersonnage().getAssassine()) || continu);
 
-			if (t == 0) {
-				System.out.println("Vous ne faites rien");
-			} else {
+				else if(getPlateau().getJoueur(t - 1).getNom().equals("Eveque") && !getPlateau().getJoueur(t - 1).getPersonnage().getAssassine()) {
+					System.out.println("Ce personnage est protégé par votre pouvoir");
+					continu = true;
+				}
+				else {
+					boolean continu2 = false;
+					System.out.println("Quel quartier choisissez-vous ? ");
+					int nQuartier = Interaction.lireUnEntier(0, getPlateau().getJoueur(t - 1).nbQuartiersDansCite());
+					do {
+						
+						if (getPlateau().getJoueur(t - 1).getCite()[nQuartier - 1].getCout()-1 <= getPlateau().getJoueur(numCondo).nbPieces()) {
+							
+							//
+							getPlateau().getJoueur(numCondo).tresor -= (getPlateau().getJoueur(t - 1).getCite()[nQuartier - 1].getCout()-1);
+							
+							System.out.println("=> On retire "+getPlateau().getJoueur(t - 1).getCite()[nQuartier - 1].getNom());
+							
+							//Destruction du quartier dans la cité du joueur
+							getPlateau().getJoueur(t - 1).retirerQuartierDansCite(getPlateau().getJoueur(t - 1).getCite()[nQuartier - 1].getNom());
+							
+							System.out.println("Pour information, votre trésor est constitué "
+												+getPlateau().getJoueur(numCondo).nbPieces() +" pièce(s) d’or");
+		    				continu2 = false;
+		    				continu = false;
+		    				
+		    			}
+						else {
+							System.out.println("Votre tresor n'est pas suffisant ");
 
-				continu = true;
-				Joueur j = getPlateau().getJoueur(t - 1);
-				System.out.println("Vous attaquez " + getPlateau().getJoueur(t - 1).getNom());
-				do {
-					System.out.println("Quel Quartier voulez-vous détruire ?");
-					int q = Interaction.lireUnEntier(0, getPlateau().getNombreJoueurs() + 1);
-//    			if(j.getCite(q-1).getCout()-1<=getPlateau().getJoueur(numCondo).nbPieces()) {
-//    				getPlateau().getJoueur(numCondo).retirerPieces(j.getCite(q-1).getCout()-1);
-//    				j.retirerQuartierDansCite(j.getCite(q-1).getNom());
-//    				continu=true;
-//    				System.out.println("il vous reste "+getPlateau().getJoueur(numCondo).nbPieces()+ " pièces");
-//    			}
-//    			else {
-//    				System.out.println("Vous ne pouvez pas détruire ce quartier pour manque de pièces");
-//    				continu = false;
-//    			}
-				} while (!continu);
+							System.out.print("Votre choix ? ");
+							nQuartier = Interaction.lireUnEntier(0, getPlateau().getJoueur(t - 1).nbQuartiersDansCite());
+							continu2 = true;
+						}
+					} while (continu2);
+				}
+				
+			} while (continu);
 
-			}
+			
 		} else {
 			System.out.println("Vous n'attaquez pas de cité");
 		}
