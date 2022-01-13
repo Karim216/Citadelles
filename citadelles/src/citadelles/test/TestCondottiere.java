@@ -62,7 +62,7 @@ public class TestCondottiere {
 		Pioche pioche = plateau.getPioche();
 		Quartier q = new Quartier("temple", Quartier.TYPE_QUARTIERS[0], 1);
 		pioche.ajouter(q);
-		q = new Quartier("prison", Quartier.TYPE_QUARTIERS[1], 2);
+		q = new Quartier("Donjon", Quartier.TYPE_QUARTIERS[4], 2);
 		pioche.ajouter(q);
 		q = new Quartier("palais", Quartier.TYPE_QUARTIERS[2], 5);
 		pioche.ajouter(q);
