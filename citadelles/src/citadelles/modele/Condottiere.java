@@ -11,7 +11,7 @@ public class Condottiere extends Personnage {
 	}
 
 	public void utiliserPouvoir() {
-		System.out.println("Voulez-vous détruire un quartier d'une cité ? ");
+		System.out.println("Voulez-vous dÃ©truire un quartier d'une citÃ© ? ");
 		boolean choix1 = Interaction.lireOuiOuNon();
 		if (choix1) {
 			System.out.println("Voici la liste des joueurs et leurs quartier");
@@ -20,7 +20,7 @@ public class Condottiere extends Personnage {
 			for (int i = 0; i < getPlateau().getNombreJoueurs(); i++) {
 				Joueur j = getPlateau().getPersonnage(i).getJoueur();
 				Personnage p = getPlateau().getPersonnage(i);
-// récupére les classes imunisé Condotiére + Eveque
+// rÃ©cupÃ©re les classes imunisÃ© CondotiÃ©re + Eveque
 				if (p.getNom().equals("Condottiere")) {
 					numCondo = i;
 				}
@@ -31,12 +31,12 @@ public class Condottiere extends Personnage {
 				Quartier[] cite = j.getCite();
 				System.out.print(i + 1 + "  " + j.getNom() + " : ");
 				for (int k = 0; k < j.nbQuartiersDansCite(); k++) {
-					System.out.print(k + 1 + "  " + cite[k].getNom() + "(coût " + cite[k].getCout()+"), ");
+					System.out.print(k + 1 + "  " + cite[k].getNom() + "(coÃ»t " + cite[k].getCout()+"), ");
 				}
 
 				System.out.print("\n");
 			}
-			System.out.println("Pour information vous avez " + getPlateau().getJoueur(numCondo).nbPieces() + " pièces");
+			System.out.println("Pour information vous avez " + getPlateau().getJoueur(numCondo).nbPieces() + " piÃ¨ces");
 			int t;
 			boolean continu = true;
 			do {
@@ -50,7 +50,7 @@ public class Condottiere extends Personnage {
 				}
 
 				else if(getPlateau().getJoueur(t - 1).getNom().equals("Eveque") && !getPlateau().getJoueur(t - 1).getPersonnage().getAssassine()) {
-					System.out.println("Ce personnage est protégé par votre pouvoir");
+					System.out.println("Ce personnage est protÃ©gÃ© par votre pouvoir");
 					continu = true;
 				}
 				else {
@@ -60,7 +60,7 @@ public class Condottiere extends Personnage {
 					do {
 						// Merveille Donjon
 						if (getPlateau().getJoueur(t - 1).getCite()[nQuartier - 1].getNom().equals("Donjon")) {
-							System.out.println("Le Donjon est immunisé au pouvoir de la condotiére");
+							System.out.println("Le Donjon est immunisÃ© au pouvoir de la condotiÃ©re");
 							continu2 = false;
 							continu = false;
 						}
@@ -72,13 +72,12 @@ public class Condottiere extends Personnage {
 
 							System.out.println("=> On retire "+getPlateau().getJoueur(t - 1).getCite()[nQuartier - 1].getNom());
 
-							//Destruction du quartier dans la cité du joueur
+							//Destruction du quartier dans la citÃ© du joueur
 							getPlateau().getJoueur(t - 1).retirerQuartierDansCite(getPlateau().getJoueur(t - 1).getCite()[nQuartier - 1].getNom());
 
-							System.out.println("Pour information, votre trésor est constitué "
-									+getPlateau().getJoueur(numCondo).nbPieces() +" pièce(s) d’or");
+							System.out.println("Pour information, votre trÃ©sor est constituÃ© "
+									+getPlateau().getJoueur(numCondo).nbPieces() +" piÃ¨ce(s) dâ€™or");
 							continu2 = false;
-							continu = false;
 
 						}
 						else {
@@ -95,7 +94,7 @@ public class Condottiere extends Personnage {
 
 
 		} else {
-			System.out.println("Vous n'attaquez pas de cité");
+			System.out.println("Vous n'attaquez pas de citÃ©");
 		}
 
 	}
