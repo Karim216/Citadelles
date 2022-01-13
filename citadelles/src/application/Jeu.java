@@ -81,6 +81,7 @@ public class Jeu {
 
 	private void tourDeJeu() {
 		choixPersonnages();
+		System.out.println("Le joueur qui à la coronne commence");
 	}
 
 	private void choixPersonnages() {
