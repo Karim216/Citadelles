@@ -21,6 +21,10 @@ public class PlateauDeJeu {
 		return pioche;
 	}
 
+	public void setPioche(Pioche pi) {
+		this.pioche = pi;;
+	}
+	
 	public int getNombrePersonnages() {
 		return nombrePersonnages;
 	}

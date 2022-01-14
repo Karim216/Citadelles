@@ -7,13 +7,17 @@ public class Roi extends Personnage {
 		// TODO Auto-generated constructor stub
 	}
 
+	@SuppressWarnings("unlikely-arg-type")
 	@Override
 	public void utiliserPouvoir() {
-
-		if (getJoueur() != null && getAssassine() != true) {
-			System.out.print("Je prends la couronne");
-			getJoueur().possedeCouronne = true;
+		System.out.println(getPlateau().getPersonnage(7).getJoueur());
+		for(int i=0; i<getPlateau().getNombrePersonnages(); i++) {
+			if (getPlateau().getPersonnage(i).equals("Roi")) {
+				System.out.println("Je prends la couronne");
+				getPlateau().getPersonnage(i).getJoueur().setPossedeCouronne(true);
+			}
 		}
+		
 
 	}
 

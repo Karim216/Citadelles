@@ -1,6 +1,7 @@
 package citadelles.modele;
 
 import controleur.Interaction;
+import application.*;
 
 public class Assassin extends Personnage {
 

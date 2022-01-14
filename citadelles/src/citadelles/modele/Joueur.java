@@ -45,6 +45,10 @@ public class Joueur {
 	public Personnage getPersonnage() {
 		return monPersonnage;
 	}
+	
+	public void setPersonnage(Personnage p) {
+		this.monPersonnage = p;
+	}
 
 	public int nbQuartiersDansMain() {
 		return this.main.size();

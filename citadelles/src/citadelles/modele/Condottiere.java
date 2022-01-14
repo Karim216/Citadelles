@@ -17,9 +17,9 @@ public class Condottiere extends Personnage {
 			System.out.println("Voici la liste des joueurs et leurs quartier");
 			int numCondo = -1;
 			int numEveque = -1;
-			for (int i = 0; i < getPlateau().getNombreJoueurs(); i++) {
-				Joueur j = getPlateau().getPersonnage(i).getJoueur();
-				Personnage p = getPlateau().getPersonnage(i);
+			for (int i = 0; i < this.getPlateau().getNombreJoueurs(); i++) {
+				Joueur j = this.getPlateau().getPersonnage(i).getJoueur();
+				Personnage p = this.getPlateau().getPersonnage(i);
 
 				if (p.getNom().equals("Condottiere")) {
 					numCondo = i;

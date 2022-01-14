@@ -10,8 +10,8 @@ public abstract class Personnage {
 	private Joueur joueur;
 
 	// l'état du personnage
-	private boolean assassine = false; // pour indiquer que le personnage n'est pas volé
-	private boolean vole = false; // pour indiquer que le personnage n'est pas assassiné
+	private boolean assassine = false; // pour indiquer que le personnage n'est pas assassiné
+	private boolean vole = false; // pour indiquer que le personnage n'est pas volé
 
 	private PlateauDeJeu plateau;
 
@@ -112,8 +112,14 @@ public abstract class Personnage {
 		// dans le cas où le personnage est associé à un joueur ou qu'il n'est pas
 		// assassiné
 		if (getJoueur() != null && assassine != true) {
+			if(nouveau.getCout() < this.getJoueur().nbPieces()) {
+				System.out.println("Vous ne disposez pas assez de sous pour construire ce quartiier dans votre cité");
+			}
+			else {
+				joueur.ajouterQuartierDansCite(nouveau);
+			}
 			// joueur.cite[joueur.cite.length] = nouveau;
-			joueur.ajouterQuartierDansCite(nouveau);
+			
 			// joueur.nbQuartiers++;
 		}
 
