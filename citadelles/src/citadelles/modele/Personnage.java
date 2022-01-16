@@ -120,6 +120,8 @@ public abstract class Personnage {
 			}
 			else {
 				getPlateau().getJoueur(i).ajouterQuartierDansCite(nouveau, i);
+				getPlateau().getJoueur(i).tresor -= nouveau.getCout();
+				getPlateau().getJoueur(i).getMain().remove(nouveau);
 			}
 			
 		}

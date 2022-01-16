@@ -33,6 +33,7 @@ public class Pioche {
 		
 		int i=0;
 		int j=0;
+		//System.out.println("nbr quartier: "+liste.size());
 		for(int k=0; k<liste.size(); k++) {
 			
 			i = gen.nextInt(liste.size());

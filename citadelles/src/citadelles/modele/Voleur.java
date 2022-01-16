@@ -13,22 +13,22 @@ public class Voleur extends Personnage {
 	public void utiliserPouvoir() {
 
 		boolean continu = false;
-		System.out.print("à quel personnage voulez vous derober tous ses biens ?\n");
+		System.out.print("Quel personnage voulez vous derober tous ses biens ?\n");
 
-		for (int i = 0; i < getPlateau().getNombrePersonnages(); i++) {
-			System.out.println("\t" + (i + 1) + " " + getPlateau().getPersonnage(i).getNom());
+		for (int i = 0; i < getPlateau().getNombreJoueurs(); i++) {
+			System.out.println("\t" + (i + 1) + " " + getPlateau().getJoueur(i).getPersonnage().getNom());
 		}
 
 		do {
 			System.out.print("Votre choix: ");
 			int choix = Interaction.lireUnEntier(1, getPlateau().getNombrePersonnages() + 1);
 
-			if (getPlateau().getPersonnage(choix - 1).getNom().equals("Voleur")) {
+			if (getPlateau().getJoueur(choix - 1).getPersonnage().getNom().equals("Voleur")) {
 				System.out.print("Sacre bleu ! vous ne pouvez point vous voler\n");
 				continu = true;
 			}
 
-			else if (getPlateau().getPersonnage(choix - 1).getRang() == 1) { // innexistant dans personnage ... idée
+			else if (getPlateau().getJoueur(choix - 1).getPersonnage().getRang() == 1) { // innexistant dans personnage ... idée
 																				// reccupérer les exeptions pour les
 																				// perso
 																				// de rang 1
@@ -39,14 +39,25 @@ public class Voleur extends Personnage {
 
 			} else {
 				//vole du personnage
-				getPlateau().getPersonnage(choix - 1).setVole();
-				getJoueur().ajouterPieces(getPlateau().getPersonnage(choix - 1).getJoueur().nbPieces());
-
-				getPlateau().getPersonnage(choix - 1).getJoueur().tresor = 0;
-				continu = false;
 				
-				//on remet vole à false
-				getPlateau().getPersonnage(choix - 1).setVole();
+				for(int i=0; i<getPlateau().getNombreJoueurs(); i++) {
+					if(getPlateau().getJoueur(i).getPersonnage().getNom().equals("Voleur")){
+						getPlateau().getJoueur(i).ajouterPieces(getPlateau().getJoueur(choix - 1).nbPieces());
+						getPlateau().getPersonnage(choix - 1).setVole();
+						
+						getPlateau().getJoueur(choix - 1).tresor = 0;
+						
+						//on remet vole à false
+						getPlateau().getJoueur(choix - 1).getPersonnage().setVole();
+						
+						continu = false;
+						
+						
+					}
+				}
+				
+
+				
 			}
 
 		} while (continu);

@@ -42,7 +42,7 @@ public class Magicienne extends Personnage {
 					System.out.print("Choisissez un joueur différent de vous: ");
 					int joueurChoisit = Interaction.lireUnEntier(1, getPlateau().getNombreJoueurs() + 1);
 
-					if (getPlateau().getPersonnage(joueurChoisit - 1).getNom().equals("Magicienne")) {
+					if (getPlateau().getJoueur(joueurChoisit - 1).getPersonnage().getNom().equals("Magicienne")) {
 						System.out.println("Vous ne pouvez pas vous choisir");
 
 						// relancer la boucle

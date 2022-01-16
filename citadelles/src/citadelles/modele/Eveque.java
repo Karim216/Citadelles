@@ -8,7 +8,12 @@ public class Eveque extends Personnage {
 	
 // L'évéque est protégé des attaque du personnage de rank 8.
 	public void utiliserPouvoir() {
-
+		System.out.println("Vous êtes protégé du pouvoir des personnages : ");
+		for(int i=0; i<getPlateau().getNombreJoueurs(); i++) {
+			if(getPlateau().getJoueur(i).getPersonnage().getRang() == 8) {
+				System.out.println("\t- "+getPlateau().getJoueur(i).getNom()+": "+getPlateau().getJoueur(i).getPersonnage().getNom());
+			}
+		}
 	}
 	@Override
 	public void percevoirRessourcesSpecifiques() {
@@ -16,11 +21,13 @@ public class Eveque extends Personnage {
 		
 		//Si le Quartier Religieux est present je fait tresor = NbdeType Quartier*2+nbpieces+nb
 		
-		if (getJoueur() != null && getAssassine() != true) {
-			for (int i = 0; i<getJoueur().nbQuartiersDansCite(); i++) {
-				if (getJoueur().getCite()[i].getType().equals("RELIGIEUX")) {
-					getJoueur().ajouterPieces(1);
-					
+		for(int i=0; i<getPlateau().getNombreJoueurs(); i++) {
+			if (getPlateau().getJoueur(i).getPersonnage().getAssassine() != true) {
+				for (int j = 0; j<getPlateau().getJoueur(i).nbQuartiersDansCite(); j++) {
+					if (getPlateau().getJoueur(i).getCite()[j].getType().equals("RELIGIEUX")) {
+						getPlateau().getJoueur(i).ajouterPieces(1);
+						
+					}
 				}
 			}
 		}

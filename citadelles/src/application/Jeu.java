@@ -91,8 +91,8 @@ public class Jeu {
 
 		
 		plateauDeJeu = Configuration.configurationDeBase(Configuration.nouvellePioche());
-		plateauDeJeu.getPioche().melanger();
 		plateauDeJeu.setPioche(Configuration.nouvellePioche());
+		plateauDeJeu.getPioche().melanger();
 		
 		for(int i=0; i<plateauDeJeu.getNombreJoueurs(); i++) {
 			plateauDeJeu.getJoueur(i).ajouterPieces(2);
@@ -190,23 +190,65 @@ public class Jeu {
 				choixConstruire = Interaction.lireOuiOuNon();
 				if(choixConstruire) {
 					
-					
-					System.out.println("Choisissez le quartier à construire dans votre cité ");
-					for (int j = 0; j < plateauDeJeu.getJoueur(i).nbQuartiersDansMain(); j++) {
-						System.out.println("\t"+(j + 1) + " " + plateauDeJeu.getJoueur(i).getMain().get(j).getNom() + " - type: "
-								+ plateauDeJeu.getJoueur(i).getMain().get(j).getType() + " - coût: "
-								+ plateauDeJeu.getJoueur(i).getMain().get(j).getCout());
+					if(plateauDeJeu.getJoueur(i).getPersonnage().getNom().equals("Architecte")) {
+						System.out.println("Vous avez la possibilité de contruire trois quartiers successif dans votre cité ");
+						int nbQ = 0;
+						
+						//Cas de l'architecte, construction de trois quartiers successif
+						do {
+							System.out.println("Choisissez le quartier à construire dans votre cité ");
+							for (int j = 0; j < plateauDeJeu.getJoueur(i).nbQuartiersDansMain(); j++) {
+								System.out.println("\t"+(j + 1) + " " + plateauDeJeu.getJoueur(i).getMain().get(j).getNom() + " - type: "
+										+ plateauDeJeu.getJoueur(i).getMain().get(j).getType() + " - coût: "
+										+ plateauDeJeu.getJoueur(i).getMain().get(j).getCout());
+							}
+							
+							System.out.print("Votre choix: ");
+							int valeur = Interaction.lireUnEntier(1, plateauDeJeu.getJoueur(i).nbQuartiersDansMain() + 1);
+							plateauDeJeu.getJoueur(i).getPersonnage().construire(plateauDeJeu.getJoueur(i).getMain().get(valeur - 1), i);
+							
+//							plateauDeJeu.getJoueur(i).getPersonnage().construire(plateauDeJeu.getPioche().piocher());
+							System.out.println("\nVotre cité : ");
+							for (int j = 0; j < plateauDeJeu.getJoueur(i).nbQuartiersDansCite(); j++) {
+								System.out.println("\t"+(j + 1) +" "+ plateauDeJeu.getJoueur(i).getCite()[j].getNom());
+							}
+							
+							System.out.println("Votre main ");
+							for (int j = 0; j < plateauDeJeu.getJoueur(i).nbQuartiersDansMain(); j++) {
+								System.out.println("\t"+(j + 1) + " " + plateauDeJeu.getJoueur(i).getMain().get(j).getNom() + " - type: "
+										+ plateauDeJeu.getJoueur(i).getMain().get(j).getType() + " - coût: "
+										+ plateauDeJeu.getJoueur(i).getMain().get(j).getCout());
+							}
+							
+							nbQ++;
+						}while(nbQ < 3);
+					}
+					else {
+						System.out.println("Choisissez le quartier à construire dans votre cité ");
+						for (int j = 0; j < plateauDeJeu.getJoueur(i).nbQuartiersDansMain(); j++) {
+							System.out.println("\t"+(j + 1) + " " + plateauDeJeu.getJoueur(i).getMain().get(j).getNom() + " - type: "
+									+ plateauDeJeu.getJoueur(i).getMain().get(j).getType() + " - coût: "
+									+ plateauDeJeu.getJoueur(i).getMain().get(j).getCout());
+						}
+						
+						System.out.print("Votre choix: ");
+						int valeur = Interaction.lireUnEntier(1, plateauDeJeu.getJoueur(i).nbQuartiersDansMain() + 1);
+						plateauDeJeu.getJoueur(i).getPersonnage().construire(plateauDeJeu.getJoueur(i).getMain().get(valeur - 1), i);
+						
+//						plateauDeJeu.getJoueur(i).getPersonnage().construire(plateauDeJeu.getPioche().piocher());
+						System.out.println("\nVotre cité : ");
+						for (int j = 0; j < plateauDeJeu.getJoueur(i).nbQuartiersDansCite(); j++) {
+							System.out.println("\t"+(j + 1) +" "+ plateauDeJeu.getJoueur(i).getCite()[j].getNom());
+						}
+						
+						System.out.println("Votre main ");
+						for (int j = 0; j < plateauDeJeu.getJoueur(i).nbQuartiersDansMain(); j++) {
+							System.out.println("\t"+(j + 1) + " " + plateauDeJeu.getJoueur(i).getMain().get(j).getNom() + " - type: "
+									+ plateauDeJeu.getJoueur(i).getMain().get(j).getType() + " - coût: "
+									+ plateauDeJeu.getJoueur(i).getMain().get(j).getCout());
+						}
 					}
 					
-					System.out.print("Votre choix: ");
-					int valeur = Interaction.lireUnEntier(1, plateauDeJeu.getJoueur(i).nbQuartiersDansMain() + 1);
-					plateauDeJeu.getJoueur(i).getPersonnage().construire(plateauDeJeu.getJoueur(i).getMain().get(valeur - 1), i);
-					
-//					plateauDeJeu.getJoueur(i).getPersonnage().construire(plateauDeJeu.getPioche().piocher());
-					System.out.println("\nVotre cité : ");
-					for (int j = 0; j < plateauDeJeu.getJoueur(i).nbQuartiersDansCite(); j++) {
-						System.out.println("\t"+(j + 1) +" "+ plateauDeJeu.getJoueur(i).getCite()[j].getNom());
-					}
 				}
 			}
 			else {

@@ -38,11 +38,13 @@ public class Roi extends Personnage {
 	}
 
 	public void percevoirRessourcesSpecifiques() {
-		if (getJoueur() != null && getAssassine() != true) {
-			for (int i = 0; i<getJoueur().nbQuartiersDansCite(); i++) {
-				if (getJoueur().getCite()[i].getType().equals("NOBLE")) {
-					getJoueur().ajouterPieces(1);
-					
+		for(int i=0; i<getPlateau().getNombreJoueurs(); i++) {
+			if (getPlateau().getJoueur(i).getPersonnage().getAssassine() != true) {
+				for (int j = 0; j<getPlateau().getJoueur(i).nbQuartiersDansCite(); j++) {
+					if (getPlateau().getJoueur(i).getCite()[j].getType().equals("NOBLE")) {
+						getPlateau().getJoueur(i).ajouterPieces(1);
+						
+					}
 				}
 			}
 		}
