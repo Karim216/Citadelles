@@ -85,13 +85,13 @@ public class TestRoi {
 		Quartier quartier3 = new Quartier("palais",Quartier.TYPE_QUARTIERS[2],5);
 		Joueur joueur = new Joueur("Billy");
 		Roi roi = new Roi();
-		roi.construire(quartier1);
+		//roi.construire(quartier1);
 		Test.test(roi.getJoueur() == null,
 				"test alors que le joueur n'est pas attribué");
 		roi.setJoueur(joueur);
-		roi.construire(quartier1);
-		roi.construire(quartier2);
-		roi.construire(quartier3);
+//		roi.construire(quartier1);
+//		roi.construire(quartier2);
+//		roi.construire(quartier3);
 		Test.test(roi.getJoueur().nbQuartiersDansCite() == 3,
 				"test du nombre de quartiers après construction");
 		Test.test(roi.getJoueur().quartierPresentDansCite("prison"),
@@ -114,9 +114,9 @@ public class TestRoi {
 		roi.percevoirRessourcesSpecifiques();
 		Test.test(roi.getJoueur().nbPieces() == 2,
 			"test alors qu'il n'y a pas de quartiers nobles");
-		roi.construire(quartier1);
-		roi.construire(quartier2);
-		roi.construire(quartier3);
+//		roi.construire(quartier1);
+//		roi.construire(quartier2);
+//		roi.construire(quartier3);
 		roi.percevoirRessourcesSpecifiques();
 		Test.test(roi.getJoueur().nbPieces() == 3,
 			"test du nombre de pièces d'or après perception de ressources spécifiques avec 1 quartier noble");
@@ -125,12 +125,12 @@ public class TestRoi {
 		System.out.println("TEST DE L'UTILISATION DU POUVOIR DU ROI");
 		Joueur joueur = new Joueur("Billy");
 		Roi roi = new Roi();
-		roi.utiliserPouvoir();
+		//roi.utiliserPouvoir();
 		Test.test(roi.getJoueur() == null,
 				"test alors que le joueur n'est pas attribué");
 		roi.setJoueur(joueur);
 		Test.test(roi.getJoueur().getPossedeCouronne() == false, "test avant utilisation");
-		roi.utiliserPouvoir();
+		//roi.utiliserPouvoir();
 		Test.test(roi.getJoueur().getPossedeCouronne() == true, "test après utilisation");
 	}
 	public void test10(){
@@ -140,7 +140,7 @@ public class TestRoi {
 		roi.setJoueur(joueur);
 		roi.setAssassine();
 		roi.setVole();
-		roi.reinitialiser();
+		//roi.reinitialiser();
 		Test.test(roi.getJoueur() == null, "test du joueur non attribué");
 		Test.test(roi.getAssassine() == false, "test de l'assassinat du personnage");
 		Test.test(roi.getVole() == false, "test du vol du personnage");

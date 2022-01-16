@@ -17,9 +17,9 @@ public class Architecte extends Personnage{
 	public void utiliserPouvoir() {
 		// TODO Auto-generated method stub
 		
-		for (int i=0; i<2; i++) {
-			this.getJoueur().main.add(getPlateau().getPioche().piocher());
-		}
+//		for (int j=0; j<2; j++) {
+//			getPlateau().getJoueur(i).main.add(getPlateau().getPioche().piocher());
+//		}
 		
 	}
 

@@ -14,12 +14,15 @@ public class Condottiere extends Personnage {
 		System.out.println("Voulez-vous détruire un quartier d'une cité ? ");
 		boolean choix1 = Interaction.lireOuiOuNon();
 		if (choix1) {
-			System.out.println("Voici la liste des joueurs et leurs quartier");
+			System.out.println("Voici la liste des joueurs et les quartiers de leur cité");
 			int numCondo = -1;
 			int numEveque = -1;
 			for (int i = 0; i < getPlateau().getNombreJoueurs(); i++) {
-				Joueur j = getPlateau().getPersonnage(i).getJoueur();
-				Personnage p = getPlateau().getPersonnage(i);
+				Joueur j = getPlateau().getJoueur(i);
+				Personnage p = getPlateau().getJoueur(i).getPersonnage();
+				
+//				Joueur j = getPlateau().getPersonnage(i).getJoueur();
+//				Personnage p = getPlateau().getPersonnage(i);
 
 				if (p.getNom().equals("Condottiere")) {
 					numCondo = i;
@@ -27,10 +30,18 @@ public class Condottiere extends Personnage {
 				if (p.getNom().equals("Eveque")) {
 					numEveque = i;
 				}
+				
 				Quartier[] cite = j.getCite();
 				System.out.print(i + 1 + "  " + j.getNom() + " : ");
-				for (int k = 0; k < j.nbQuartiersDansCite(); k++) {
-					System.out.print(k + 1 + "  " + cite[k].getNom() + "(coût " + cite[k].getCout()+"), ");
+				if(j.nbQuartiersDansCite() != 0) {
+					for (int k = 0; k < j.nbQuartiersDansCite(); k++) {
+						System.out.print(k + 1 + "  " + cite[k].getNom() + "(coût " + cite[k].getCout()+"), ");
+					}
+				}
+				else {
+					
+					System.out.print(j.getNom()+" n'a aucun quartier dans sa cité");
+					
 				}
 				
 				System.out.print("\n");

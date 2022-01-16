@@ -35,9 +35,9 @@ public class TestMarchande {
 		marchande.ajouterPieces();
 		Test.test(marchande.getJoueur().nbPieces() == 2,
 			"test du nombre de pièces d'or avant perception");
-		marchande.construire(quartier1);
-		marchande.construire(quartier2);
-		marchande.construire(quartier3);		
+//		marchande.construire(quartier1);
+//		marchande.construire(quartier2);
+//		marchande.construire(quartier3);		
 		marchande.percevoirRessourcesSpecifiques();
 		Test.test(marchande.getJoueur().nbPieces() == 4,
 			"test du nombre de pièces d'or après perception de ressources spécifiques avec 2 quartiers commerçants");

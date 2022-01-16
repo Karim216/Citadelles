@@ -35,9 +35,9 @@ public class TestEveque {
 		eveque.ajouterPieces();
 		Test.test(eveque.getJoueur().nbPieces() == 2,
 			"test du nombre de pièces d'or avant perception");
-		eveque.construire(quartier1);
-		eveque.construire(quartier2);
-		eveque.construire(quartier3);		
+//		eveque.construire(quartier1);
+//		eveque.construire(quartier2);
+//		eveque.construire(quartier3);		
 		eveque.percevoirRessourcesSpecifiques();
 		Test.test(eveque.getJoueur().nbPieces() == 4,
 			"test du nombre de pièces d'or après perception de ressources spécifiques avec 2 quartiers religieux");

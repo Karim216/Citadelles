@@ -85,14 +85,14 @@ public class TestCondottiere {
 		pioche.melanger();
 
 		// on distribue les cartes aux joueurs:
-		joueur1.ajouterQuartierDansCite(pioche.piocher());
-		joueur1.ajouterQuartierDansCite(pioche.piocher());
-		joueur1.ajouterQuartierDansCite(pioche.piocher());
-		joueur2.ajouterQuartierDansCite(pioche.piocher());
-		joueur2.ajouterQuartierDansCite(pioche.piocher());
-		joueur2.ajouterQuartierDansCite(pioche.piocher());
-		joueur3.ajouterQuartierDansCite(pioche.piocher());
-		joueur3.ajouterQuartierDansCite(pioche.piocher());
+//		joueur1.ajouterQuartierDansCite(pioche.piocher());
+//		joueur1.ajouterQuartierDansCite(pioche.piocher());
+//		joueur1.ajouterQuartierDansCite(pioche.piocher());
+//		joueur2.ajouterQuartierDansCite(pioche.piocher());
+//		joueur2.ajouterQuartierDansCite(pioche.piocher());
+//		joueur2.ajouterQuartierDansCite(pioche.piocher());
+//		joueur3.ajouterQuartierDansCite(pioche.piocher());
+//		joueur3.ajouterQuartierDansCite(pioche.piocher());
 
 		// on affiche la main de chaque joueur:
 		System.out.print("Main du Roi (" + roi.getJoueur().getNom() + "): ");
@@ -140,9 +140,9 @@ public class TestCondottiere {
 		condottiere.setJoueur(joueur);
 		condottiere.ajouterPieces();
 		Test.test(condottiere.getJoueur().nbPieces() == 2, "test du nombre de pièces d'or avant perception");
-		condottiere.construire(quartier1);
-		condottiere.construire(quartier2);
-		condottiere.construire(quartier3);
+//		condottiere.construire(quartier1);
+//		condottiere.construire(quartier2);
+//		condottiere.construire(quartier3);
 		condottiere.percevoirRessourcesSpecifiques();
 		Test.test(condottiere.getJoueur().nbPieces() == 3,
 				"test du nombre de pièces d'or après perception de ressources spécifiques avec 1 quartier militaire");

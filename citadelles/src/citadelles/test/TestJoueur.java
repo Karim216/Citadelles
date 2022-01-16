@@ -48,9 +48,9 @@ public class TestJoueur {
 		Quartier quartier1 = new Quartier("temple",Quartier.TYPE_QUARTIERS[0],1);
 		Quartier quartier2 = new Quartier("prison",Quartier.TYPE_QUARTIERS[1],2);
 		Quartier quartier3 = new Quartier("palais",Quartier.TYPE_QUARTIERS[2],5);
-		joueur.ajouterQuartierDansCite(quartier1);
-		joueur.ajouterQuartierDansCite(quartier2);
-		joueur.ajouterQuartierDansCite(quartier3);
+//		joueur.ajouterQuartierDansCite(quartier1);
+//		joueur.ajouterQuartierDansCite(quartier2);
+//		joueur.ajouterQuartierDansCite(quartier3);
 		Test.test(joueur.nbQuartiersDansCite() == 3,"test de l'ajout de trois quartiers");
 		Test.test(joueur.quartierPresentDansCite("temple"), "test de présence d'un quartier");
 		Quartier retour = joueur.retirerQuartierDansCite("prison");
@@ -84,7 +84,7 @@ public class TestJoueur {
 		Quartier quartier3 = new Quartier("palais",Quartier.TYPE_QUARTIERS[2],5);
 		joueur.ajouterQuartierDansMain(quartier1);
 		joueur.ajouterQuartierDansMain(quartier2);
-		joueur.ajouterQuartierDansCite(quartier3);
+		//joueur.ajouterQuartierDansCite(quartier3);
 		joueur.reinitialiser();
 		joueur.ajouterPieces(2);
 		joueur.reinitialiser();

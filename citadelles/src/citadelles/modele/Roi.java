@@ -7,17 +7,33 @@ public class Roi extends Personnage {
 		// TODO Auto-generated constructor stub
 	}
 
-	@SuppressWarnings("unlikely-arg-type")
-	@Override
 	public void utiliserPouvoir() {
-		System.out.println(getPlateau().getPersonnage(7).getJoueur());
-		for(int i=0; i<getPlateau().getNombrePersonnages(); i++) {
-			if (getPlateau().getPersonnage(i).equals("Roi")) {
-				System.out.println("Je prends la couronne");
-				getPlateau().getPersonnage(i).getJoueur().setPossedeCouronne(true);
+//		System.out.println(getPlateau().getPersonnage(2).getJoueur());
+		
+		//getPlateau().getJoueur(i).setPossedeCouronne(true);
+		
+//		for(int i=0; i<getPlateau().getNombreJoueurs(); i++) {
+//			
+//			if (!getPlateau().getJoueur(i).getPersonnage().getNom().equals("Roi")) {
+//				getPlateau().getJoueur(i).setPossedeCouronne(true);
+//				System.out.println("Vous prennez la couronne");
+//				
+//			}else {
+//				getPlateau().getJoueur(i).setPossedeCouronne(false);
+//			}
+//		}
+
+		for(int i=0; i<getPlateau().getNombreJoueurs(); i++) {
+			
+			
+			if (getPlateau().getJoueur(i).getPersonnage().getNom().equals("Roi")) {
+				getPlateau().getJoueur(i).setPossedeCouronne(true);
+				System.out.println("Vous prennez la couronne");
+				
+			}else {
+				getPlateau().getJoueur(i).setPossedeCouronne(false);
 			}
 		}
-		
 
 	}
 

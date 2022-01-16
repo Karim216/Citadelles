@@ -78,10 +78,11 @@ public class Joueur {
 	}
 
 	// Méthode ajout Quartier dans la cite
-	public void ajouterQuartierDansCite(Quartier q) {
-		if (nbQuartiersDansCite() < TAILLE_CITE) {
-			cite[nbQuartiersDansCite()] = q;
-			nbQuartiers++;
+	public void ajouterQuartierDansCite(Quartier q, int i) {
+		if (getPersonnage().getPlateau().getJoueur(i).nbQuartiersDansCite() < TAILLE_CITE) {
+			//cite[nbQuartiersDansCite()] = q;
+			getPersonnage().getPlateau().getJoueur(i).cite[getPersonnage().getPlateau().getJoueur(i).nbQuartiersDansCite()] = q;
+			getPersonnage().getPlateau().getJoueur(i).nbQuartiers++;
 		}
 	}
 

@@ -1,5 +1,7 @@
 package citadelles.modele;
 
+import application.Configuration;
+
 public abstract class Personnage {
 
 	private String nom;
@@ -107,20 +109,19 @@ public abstract class Personnage {
 
 	}
 
-	public void construire(Quartier nouveau) {
+	public void construire(Quartier nouveau, int i) {
 
 		// dans le cas où le personnage est associé à un joueur ou qu'il n'est pas
 		// assassiné
-		if (getJoueur() != null && assassine != true) {
-			if(nouveau.getCout() < this.getJoueur().nbPieces()) {
+		
+		if (getPlateau().getJoueur(i) != null && getPlateau().getJoueur(i).getPersonnage().getAssassine() != true) {
+			if(nouveau.getCout() > getPlateau().getJoueur(i).nbPieces()) {
 				System.out.println("Vous ne disposez pas assez de sous pour construire ce quartiier dans votre cité");
 			}
 			else {
-				joueur.ajouterQuartierDansCite(nouveau);
+				getPlateau().getJoueur(i).ajouterQuartierDansCite(nouveau, i);
 			}
-			// joueur.cite[joueur.cite.length] = nouveau;
 			
-			// joueur.nbQuartiers++;
 		}
 
 		// dans le cas où le personnage n'est associé à aucun joueur ou qu'il est
@@ -134,12 +135,14 @@ public abstract class Personnage {
 	// classe abstraite qui sera utilisé dans les classes roi et autres
 	public abstract void utiliserPouvoir();
 
-	public void reinitialiser() {
-		joueur = null;
-		if (this.joueur != null) {
-			this.joueur.monPersonnage = null;
-		}
-		vole = false;
-		assassine = false;
+	public void reinitialiser(int i) {
+		
+		getPlateau().getJoueur(i).getPersonnage().joueur = null;
+		//if (this.joueur != null) {
+			getPlateau().getJoueur(i).getPersonnage().joueur.monPersonnage = null;
+		//}
+		getPlateau().getJoueur(i).getPersonnage().vole = false;
+		getPlateau().getJoueur(i).getPersonnage().assassine = false;
+		
 	}
 }
