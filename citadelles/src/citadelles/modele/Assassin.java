@@ -16,19 +16,19 @@ public class Assassin extends Personnage {
 		boolean continu = false;
 		System.out.print("Quel personnage voulez-vous assassiner ?\n");
 
-		for (int i = 0; i < getPlateau().getNombrePersonnages(); i++) {
-			System.out.println("\t" + (i + 1) + " " + getPlateau().getPersonnage(i).getNom());
+		for (int i = 0; i < getPlateau().getNombreJoueurs(); i++) {
+			System.out.println("\t" + (i + 1) + " " + getPlateau().getJoueur(i).getPersonnage().getNom());
 		}
 
 		do {
 			System.out.print("Votre choix: ");
 			int choix = Interaction.lireUnEntier(1, getPlateau().getNombrePersonnages() + 1);
 
-			if (getPlateau().getPersonnage(choix - 1).getNom().equals("Assassin")) {
+			if (getPlateau().getJoueur(choix - 1).getPersonnage().getNom().equals("Assassin")) {
 				System.out.print("Vous ne pouvez pas vous assassiner\n");
 				continu = true;
 			} else {
-				getPlateau().getPersonnage(choix - 1).setAssassine();
+				getPlateau().getJoueur(choix - 1).getPersonnage().setAssassine();
 				continu = false;
 			}
 		} while (continu);
@@ -38,7 +38,7 @@ public class Assassin extends Personnage {
 	@Override
 	public void percevoirRessourcesSpecifiques() {
 		// TODO Auto-generated method stub
-		
+		System.out.print("------------------\n");
 	}
 
 }

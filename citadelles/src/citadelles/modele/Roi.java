@@ -8,20 +8,6 @@ public class Roi extends Personnage {
 	}
 
 	public void utiliserPouvoir() {
-//		System.out.println(getPlateau().getPersonnage(2).getJoueur());
-		
-		//getPlateau().getJoueur(i).setPossedeCouronne(true);
-		
-//		for(int i=0; i<getPlateau().getNombreJoueurs(); i++) {
-//			
-//			if (!getPlateau().getJoueur(i).getPersonnage().getNom().equals("Roi")) {
-//				getPlateau().getJoueur(i).setPossedeCouronne(true);
-//				System.out.println("Vous prennez la couronne");
-//				
-//			}else {
-//				getPlateau().getJoueur(i).setPossedeCouronne(false);
-//			}
-//		}
 
 		for(int i=0; i<getPlateau().getNombreJoueurs(); i++) {
 			

@@ -43,12 +43,18 @@ public class Voleur extends Personnage {
 				for(int i=0; i<getPlateau().getNombreJoueurs(); i++) {
 					if(getPlateau().getJoueur(i).getPersonnage().getNom().equals("Voleur")){
 						getPlateau().getJoueur(i).ajouterPieces(getPlateau().getJoueur(choix - 1).nbPieces());
-						getPlateau().getPersonnage(choix - 1).setVole();
+						
+						System.out.println(getPlateau().getJoueur(choix - 1).nbPieces()+" pièce(s) ajoutée(s) dans votre trésor");
+						getPlateau().getJoueur(choix - 1).getPersonnage().setVole();
 						
 						getPlateau().getJoueur(choix - 1).tresor = 0;
 						
 						//on remet vole à false
 						getPlateau().getJoueur(choix - 1).getPersonnage().setVole();
+						
+						
+						
+						System.out.print("\tTotal: "+getPlateau().getJoueur(i).nbPieces()+" pièce(s) d'or\n");
 						
 						continu = false;
 						
@@ -66,6 +72,8 @@ public class Voleur extends Personnage {
 	@Override
 	public void percevoirRessourcesSpecifiques() {
 		// TODO Auto-generated method stub
+		
+		System.out.print("---------------------\n");
 
 	}
 

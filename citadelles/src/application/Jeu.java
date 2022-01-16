@@ -123,6 +123,14 @@ public class Jeu {
 		for(int i=0; i<plateauDeJeu.getNombreJoueurs(); i++) {
 			plateauDeJeu.getJoueur(i).getPersonnage().reinitialiser(i);
 		}
+		
+		System.out.println("Réinitialisation des personnages");
+		for(int i=0; i<plateauDeJeu.getNombreJoueurs(); i++) {
+			
+			System.out.println("\t"+plateauDeJeu.getJoueur(i).getNom()+": "+plateauDeJeu.getJoueur(i).getPersonnage()+
+								"Personnage("+plateauDeJeu.getJoueur(i).getPersonnage()+") "+
+								"Trésor("+plateauDeJeu.getJoueur(i).nbPieces()+") ");
+		}
 	}
 
 	private boolean partieFinie() {
@@ -184,9 +192,10 @@ public class Jeu {
 				
 				if(choixPouvoir) {
 					plateauDeJeu.getJoueur(i).getPersonnage().utiliserPouvoir();
+					
 				}
 				
-				System.out.println("Voulez-vous construire ? ");
+				System.out.println("\nVoulez-vous construire ? ");
 				choixConstruire = Interaction.lireOuiOuNon();
 				if(choixConstruire) {
 					
@@ -420,5 +429,4 @@ public class Jeu {
 		}
 
 	}
-
 }

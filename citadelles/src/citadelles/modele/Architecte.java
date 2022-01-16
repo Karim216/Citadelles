@@ -34,8 +34,7 @@ public class Architecte extends Personnage{
 			}
 			
 		}
-		
-		
+			
 	}
 
 }

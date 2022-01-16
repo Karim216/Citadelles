@@ -139,12 +139,18 @@ public abstract class Personnage {
 
 	public void reinitialiser(int i) {
 		
-		getPlateau().getJoueur(i).getPersonnage().joueur = null;
-		//if (this.joueur != null) {
-			getPlateau().getJoueur(i).getPersonnage().joueur.monPersonnage = null;
-		//}
-		getPlateau().getJoueur(i).getPersonnage().vole = false;
-		getPlateau().getJoueur(i).getPersonnage().assassine = false;
+		//getPlateau().getJoueur(i).getPersonnage().joueur = null;
+		if (getPlateau().getJoueur(i).getPersonnage().getVole()) {
+			getPlateau().getJoueur(i).getPersonnage().setVole();
+		}
+		
+		if(getPlateau().getJoueur(i).getPersonnage().getAssassine()) {
+			
+			getPlateau().getJoueur(i).getPersonnage().setAssassine();
+		}
+		
+		getPlateau().getJoueur(i).setPersonnage(null);
+		
 		
 	}
 }

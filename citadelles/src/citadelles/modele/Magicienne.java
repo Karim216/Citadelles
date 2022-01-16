@@ -56,7 +56,7 @@ public class Magicienne extends Personnage {
 
 						// copie de la liste des quartiers du joueur dans la liste des quartiers de la magicienne
 						for (int i = 0; i < getPlateau().getNombreJoueurs(); i++) {
-							if (getPlateau().getPersonnage(i).getNom().equals("Magicienne")) {
+							if (getPlateau().getJoueur(i).getPersonnage().getNom().equals("Magicienne")) {
 
 								// dans le cas où la main de la magicienne est vide
 								if (getPlateau().getJoueur(i).getMain().isEmpty()) {
@@ -74,8 +74,8 @@ public class Magicienne extends Personnage {
 								// dans le cas où la main de la magicienne n'est pas vide
 								else {
 
-									System.out.println(getPlateau().getJoueur(i).main);
-									System.out.println(getPlateau().getJoueur(joueurChoisit - 1).main);
+//									System.out.println(getPlateau().getJoueur(i).main);
+//									System.out.println(getPlateau().getJoueur(joueurChoisit - 1).main);
 
 									// copie de la liste des quartiers de la magicienne dans copieTableauMagicienne
 									copieTableauMagicienne.addAll(getPlateau().getJoueur(i).getMain());
@@ -93,8 +93,8 @@ public class Magicienne extends Personnage {
 									// on remplace la main du joueur volé par celle de la magicienne
 									getPlateau().getJoueur(joueurChoisit - 1).main.addAll(copieTableauMagicienne);
 
-									System.out.println(getPlateau().getJoueur(i).main);
-									System.out.println(getPlateau().getJoueur(joueurChoisit - 1).main);
+//									System.out.println(getPlateau().getJoueur(i).main);
+//									System.out.println(getPlateau().getJoueur(joueurChoisit - 1).main);
 
 								}
 
@@ -108,7 +108,7 @@ public class Magicienne extends Personnage {
 
 			} else {
 				for (int i = 0; i < getPlateau().getNombreJoueurs(); i++) {
-					if (getPlateau().getPersonnage(i).getNom().equals("Magicienne")) {
+					if (getPlateau().getJoueur(i).getPersonnage().getNom().equals("Magicienne")) {
 
 						// si la main de la maicienne est vide, on ne fait rien
 						if (getPlateau().getJoueur(i).getMain().isEmpty()) {
@@ -118,13 +118,13 @@ public class Magicienne extends Personnage {
 						// dans le cas contraire on procède à l'échange
 						else {
 							System.out.print("Combien de cartes voulez-vous prendre dans la pioche ? ");
-							int nbCarte = Interaction.lireUnEntier(0, getJoueur().nbQuartiersDansMain() + 1);
+							int nbCarte = Interaction.lireUnEntier(0, getPlateau().getJoueur(i).nbQuartiersDansMain() + 1);
 							
 							System.out.println("Voici les cartes dans votre main : ");
-							for (int j = 0; j < getJoueur().nbQuartiersDansMain(); j++) {
-								System.out.println((j + 1) + " " + getJoueur().getMain().get(j).getNom() + " - type: "
-										+ getJoueur().getMain().get(j).getType() + " - pièce(s): "
-										+ getJoueur().getMain().get(j).getCout());
+							for (int j = 0; j < getPlateau().getJoueur(i).nbQuartiersDansMain(); j++) {
+								System.out.println((j + 1) + " " + getPlateau().getJoueur(i).getMain().get(j).getNom() + " - type: "
+										+ getPlateau().getJoueur(i).getMain().get(j).getType() + " - pièce(s): "
+										+ getPlateau().getJoueur(i).getMain().get(j).getCout());
 							}
 							
 							
@@ -134,13 +134,13 @@ public class Magicienne extends Personnage {
 							}
 							
 							//si la magicienne veut échanger toutes les cartes presentes dans sa main
-							else if(nbCarte == getJoueur().nbQuartiersDansMain()) {
+							else if(nbCarte == getPlateau().getJoueur(i).nbQuartiersDansMain()) {
 //								System.out.println("teste nb cartes égaux");
 								// copie de la liste des quartiers de la magicienne dans copieTableauMagicienne
 								copieTableauMagicienne.addAll(getPlateau().getJoueur(i).getMain());
 								
 								// vider la liste des quartiers dans la main de la magicienne
-								getJoueur().main.clear();
+								getPlateau().getJoueur(i).main.clear();
 								
 								for(int k = 0; k<nbCarte; k++) {
 									
@@ -148,15 +148,15 @@ public class Magicienne extends Personnage {
 									getPlateau().getPioche().ajouter(copieTableauMagicienne.get(k));
 									
 									//piocher les nouvelles cartes quartier et les ajouter dans la main de la magicienne
-									getJoueur().main.add(getPlateau().getPioche().piocher());
+									getPlateau().getJoueur(i).main.add(getPlateau().getPioche().piocher());
 									
 								}
 								
 								//Affichage de la nouvelle des quartiers dans la main de la magicienne
-								for (int j = 0; j < getJoueur().nbQuartiersDansMain(); j++) {
+								for (int j = 0; j < getPlateau().getJoueur(i).nbQuartiersDansMain(); j++) {
 									System.out.println((j + 1) + " " + getJoueur().getMain().get(j).getNom() + " - type: "
-											+ getJoueur().getMain().get(j).getType() + " - pièce(s): "
-											+ getJoueur().getMain().get(j).getCout());
+											+ getPlateau().getJoueur(i).getMain().get(j).getType() + " - pièce(s): "
+											+getPlateau().getJoueur(i).getMain().get(j).getCout());
 								}
 							}
 							
@@ -170,7 +170,7 @@ public class Magicienne extends Personnage {
 								System.out.println("faites vos choix des cartes à echanger: ");
 								for (int k = 0; k < nbCarte; k++) {
 									System.out.print("choix"+(k+1)+": ");
-									int numRetirer = Interaction.lireUnEntier(1, getJoueur().nbQuartiersDansMain() + 1);
+									int numRetirer = Interaction.lireUnEntier(1, getPlateau().getJoueur(i).nbQuartiersDansMain() + 1);
 									getPlateau().getPioche().ajouter(copieTableauMagicienne.get(numRetirer - 1));
 									copieTableauMagicienne.remove(numRetirer - 1);
 									
@@ -187,10 +187,10 @@ public class Magicienne extends Personnage {
 								
 								
 								//Affichage de la nouvelle des quartiers dans la main de la magicienne
-								for (int j = 0; j < getJoueur().nbQuartiersDansMain(); j++) {
-									System.out.println((j + 1) + " " + getJoueur().getMain().get(j).getNom() + " - type: "
-											+ getJoueur().getMain().get(j).getType() + " - pièce(s): "
-											+ getJoueur().getMain().get(j).getCout());
+								for (int j = 0; j < getPlateau().getJoueur(i).nbQuartiersDansMain(); j++) {
+									System.out.println((j + 1) + " " + getPlateau().getJoueur(i).getMain().get(j).getNom() + " - type: "
+											+ getPlateau().getJoueur(i).getMain().get(j).getType() + " - pièce(s): "
+											+ getPlateau().getJoueur(i).getMain().get(j).getCout());
 								}
 							}
 							
@@ -206,7 +206,8 @@ public class Magicienne extends Personnage {
 	@Override
 	public void percevoirRessourcesSpecifiques() {
 		// TODO Auto-generated method stub
-
+		
+		System.out.print("------------------\n");
 	}
 
 }

@@ -17,6 +17,9 @@ public class Condottiere extends Personnage {
 			System.out.println("Voici la liste des joueurs et les quartiers de leur cité");
 			int numCondo = -1;
 			int numEveque = -1;
+			
+			int test = 0;
+			
 			for (int i = 0; i < getPlateau().getNombreJoueurs(); i++) {
 				Joueur j = getPlateau().getJoueur(i);
 				Personnage p = getPlateau().getJoueur(i).getPersonnage();
@@ -41,6 +44,7 @@ public class Condottiere extends Personnage {
 				else {
 					
 					System.out.print(j.getNom()+" n'a aucun quartier dans sa cité");
+					test++;
 					
 				}
 				
@@ -54,7 +58,15 @@ public class Condottiere extends Personnage {
 
 				t = Interaction.lireUnEntier(0, getPlateau().getNombreJoueurs() + 1);
 				
-				if(t == 0) {
+				if(test == 4) {
+					
+					System.out.print("Aucun joueur n'a encore construit dans sa cité\n");
+					continu = false;
+					
+				}
+				
+				
+				else if(t == 0) {
 					System.out.println("Vous ne faites rien");
 					continu = false;
 				}

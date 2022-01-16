@@ -19,7 +19,14 @@ public class Marchande extends Personnage {
 
 	public void utiliserPouvoir() {
 
-		getJoueur().ajouterPieces(1);
+		for (int i = 0; i < getPlateau().getNombreJoueurs(); i++) {
+			if (getPlateau().getJoueur(i).getPersonnage().getNom().equals("Marchande")) {
+				getPlateau().getJoueur(i).ajouterPieces(1);
+				
+				System.out.println("1 pièce ajouté dans votre trésor");
+				System.out.print("\tTotal: "+getPlateau().getJoueur(i).nbPieces()+" pièce(s) d'or\n");
+			}
+		}
 
 	}
 
@@ -27,11 +34,13 @@ public class Marchande extends Personnage {
 	public void percevoirRessourcesSpecifiques() {
 		// TODO Auto-generated method stub
 
-		if (getJoueur() != null && getAssassine() != true) {
-			for (int i = 0; i < getJoueur().nbQuartiersDansCite(); i++) {
-				if (getJoueur().getCite()[i].getType().equals("COMMERCANT")) {
-					getJoueur().ajouterPieces(1);
-
+		for(int i=0; i<getPlateau().getNombreJoueurs(); i++) {
+			if (getPlateau().getJoueur(i).getPersonnage().getAssassine() != true) {
+				for (int j = 0; j<getPlateau().getJoueur(i).nbQuartiersDansCite(); j++) {
+					if (getPlateau().getJoueur(i).getCite()[j].getType().equals("COMMERCANT")) {
+						getPlateau().getJoueur(i).ajouterPieces(1);
+						
+					}
 				}
 			}
 		}
